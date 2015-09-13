@@ -12,13 +12,20 @@ public:
 	{
 		cout << " constructor A " << endl;
 	};
+
+	A(int v_a)
+	{
+		a = v_a;
+		cout << " constructor a = " << a << endl;
+	};
+
 	virtual void show()
 	{
-		cout << " Show A " << endl;
+		cout << " Show A " << a <<  endl;
 
 	};
 	virtual ~A(){
-		cout << " Destructor A " << endl;
+		cout << " Destructor A " <<  endl;
 	};
 };
 
@@ -33,10 +40,16 @@ public:
 		cout << " constructor B " << endl;
 	};
 
+	B(int v_b)
+	{
+		b = v_b;
+		cout << " constructor b = " << b << endl;
+	};
+
 
 	virtual void show()
 	{
-		cout << " Show B " << endl;
+		cout << " Show B " << b << endl;
 
 	};
 	virtual ~B(){
@@ -57,13 +70,19 @@ public:
 		///A::show();
 	};
 
+	C(int v_c)
+	{
+		c = v_c;
+		cout << " constructor c = " << c << endl;
+	};
+
 
 	virtual void show()
 	{
 		//A a;
 		//B::show();
 		//a.show();
-		cout << " Show C " << endl;
+		cout << " Show C " << c << endl;
 
 	};
 	virtual ~C(){
@@ -78,18 +97,46 @@ public:
 
 int main()
 {
-	A* c = new C[3];
-	c->show();
-	//c[1]->show();
+	// ******* task 1 ***************
+
+	int d = 9;
+	int* p = &d;
+	int& s = *p;
+	cout << "Clear:      s = " << s << "; d =  " << d << "; *p = " << *p << endl;
+
+	s = 4;
+	cout << "Change s:   s = " << s << "; d =  " << d << "; *p = " << *p << endl;
+
+	*p = 5;
+	cout << "Change *p:  s = " << s << "; d =  " << d << "; *p = " << *p << endl;
+
+	d = 7;
+	cout << "Change d:   s = " << s << "; d =  " << d << "; *p = " << *p << endl;
 
 
 
-	c+2;
-	c->show();
+	// ******* task 2 ***************
+	//double a = 2.8;
+	//cout << static_cast<int>(a) << endl;
 
 
 
-	delete[] c;
+
+	// ******* task 3 ***************
+	/*C* c = new C[3];
+
+	C c2(50);
+	c[0] = c2;
+	c[1] = c2;
+	c[2] = c2;
+
+	c[0].show();
+	c[1].show();
+	c[2].show();*/
+
+
+
+	//delete[] c;
 	return 0;
 
 };
